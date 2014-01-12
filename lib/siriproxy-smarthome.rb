@@ -70,7 +70,7 @@ listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
 #system"sleep 3"
 #	system"echo hallo"
 
-end
+#end
 
 listen_for /ich kann nicht einschlafen/i do
 	say"ein Schaf @{tts#\e\\pause=400\\}"
