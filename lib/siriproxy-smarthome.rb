@@ -34,7 +34,7 @@ end
 add_property_to_class(OpenLink, :ref)
 
 listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
-    say"Gerne, ich schalte " + type + " für dich " + value
+    say"" + type + " wird " + value + "geschaltet"
 	case type.downcase
         when "Küche"    									#Wie heisst der Aktor, wo befindet er sich, welches Gerät schaltet er ???
             type = "9fc52200-1747-408a-a82f-8ee294511b70"   	#Jeder Aktor, jede Zustandsvariable hat eine eigene ID
@@ -60,8 +60,9 @@ listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
       when "aus", "zu", "schließen", "deaktivieren", "abschalten", "ausschalten" 	#Diese Begriffe können beliebig erweitert werden.
         value = "0"
       end
-	  
-    system"DISPLAY=:0; 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}' &"
+
+uri = URI('https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}')
+#system"DISPLAY=:0; 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}' &"
 	system"sleep 3"
 	system"echo hallo"
 
