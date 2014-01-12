@@ -12,9 +12,9 @@ require 'siri_objects'
 require 'pp'
 require 'open-uri'
 
-class SiriProxy::Plugin::Smarthome < SiriProxy::Plugin
-    def initialize(config)
-        #if you have custom configuration options, process them here!
+class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
+    def initialize
+        @SmartHome = ::SmartHome::Client.new
     end
     
 class OpenLink < SiriObject
@@ -28,8 +28,8 @@ add_property_to_class(OpenLink, :ref)
 listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
     say"Gerne, ich schalte " + type + " für dich" 
 	case type.downcase
-		when "Stehlampe"    									#Wie heisst der Aktor, wo befindet er sich, welches Gerät schaltet er ???
-			type = "451fa82c-0235-4997-a755-f2e7XXXXX"    		#Jeder Aktor bzw. jede Zustandsvariable hat eine eigene ID
+		when "Regal"    									#Wie heisst der Aktor, wo befindet er sich, welches Gerät schaltet er ???
+			type = "9fc52200-1747-408a-a82f-8ee294511b70"    		#Jeder Aktor bzw. jede Zustandsvariable hat eine eigene ID
 		when "Lichtkugel"
 			type = "4c3c70c1-13f8-4669-9b68-0e05XXXXX"
 		end
