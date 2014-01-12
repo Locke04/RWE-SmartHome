@@ -40,7 +40,7 @@ listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
         value = "0"
     end
 	  
-    uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id={type}&Value=#{value}"    #hier werden aus den einzelnen Variablen eine URL erstellt und dann an Safari gesendet
+    uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}"    #hier werden aus den einzelnen Variablen eine URL erstellt und dann an Safari gesendet
 	view = OpenLink.new(uri.gsub("//",""))
     send_object view
 	end
