@@ -61,7 +61,7 @@ listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
         value = "0"
       end
 	  
-    system"DISPLAY=:0 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}'"
+    system"DISPLAY=:0; 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}'"
 	system"sleep 3"
 	system"echo hallo"
 
