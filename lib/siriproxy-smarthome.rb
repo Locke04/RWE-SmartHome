@@ -37,50 +37,56 @@ add_property_to_class(OpenLink, :ref)
 
 # Aktivieren
 listen_for /Küche an/i do
-    say "Küche wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Küche wird eingeschaltet"
     request_completed
 end
 
 listen_for /Regal an/i do
-    say "Regal Licht wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Regal Licht wird eingeschaltet"
     request_completed
 end
 
 listen_for /Kugellampe an/i do
-    say "Kugellampe wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Kugellampe wird eingeschaltet"
     request_completed
 end
 
 listen_for /Fernseher an/i do
-    say "Medientechnik wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Medientechnik wird eingeschaltet"
     request_completed
 end
 
 listen_for /Schlafzimmer an/i do
-    say "Schlafzimmer wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Schlafzimmer wird eingeschaltet"
     request_completed
 end
 
 listen_for /Arbeitszimmer an/i do
-    say "Arbeitszimmer wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Arbeitszimmer wird eingeschaltet"
     request_completed
 end
 
@@ -89,15 +95,15 @@ listen_for /Ich bin zu Hause/i do
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
@@ -106,49 +112,56 @@ end
 
 #Deaktivieren
 listen_for /Küche aus/i do
-    HTTParty.post("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0")
-    #uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
+    uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
+    view = OpenLink.new(uri.gsub("//",""))
+    send_object view
+    system"sleep 3"
     say "Küche wird ausgeschaltet"
     request_completed
 end
 
 listen_for /Regal aus/i do
-    say "Regal Licht wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Regal Licht wird ausgeschaltet"
     request_completed
 end
 
 listen_for /Kugellampe aus/i do
-    say "Kugellampe wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Kugellampe wird ausgeschaltet"
     request_completed
 end
 
 listen_for /Fernseher aus/i do
-    say "Medientechnik wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Medientechnik wird ausgeschaltet"
     request_completed
 end
 
 listen_for /Schlafzimmer aus/i do
-    say "Schlafzimmer wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Schlafzimmer wird ausgeschaltet"
     request_completed
 end
 
 listen_for /Arbeitszimmer aus/i do
-    say "Arbeitszimmer wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    system"sleep 3"
+    say "Arbeitszimmer wird ausgeschaltet"
     request_completed
 end
 
@@ -157,29 +170,30 @@ listen_for /Alles abschalten/i do
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
-    system"sleep 3"
+    system"sleep 10"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
     request_completed
 end
 
+end
 
 #listen_for /(.*) (an|aus|[0-9]+ %)/i do |type,value| #)
 #    say"" + type + " wird " + value + "geschaltet"
@@ -213,7 +227,7 @@ end
 #   system"sleep 3"
 #	system"echo hallo"
 
-end
+
 
 
 #		uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}"
