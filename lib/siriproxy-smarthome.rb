@@ -3,8 +3,6 @@ require 'cora'
 require 'siri_objects'
 require 'pp'
 require 'open-uri'
-require 'net/http'
-require 'httparty'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
