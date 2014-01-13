@@ -4,6 +4,7 @@ require 'siri_objects'
 require 'pp'
 require 'open-uri'
 require 'net/http'
+require 'httparty'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
@@ -105,7 +106,7 @@ end
 
 #Deaktivieren
 listen_for /Küche aus/i do
-    Net::HTTP.post('mobile.rwe-smarthome.de','/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0')
+    HTTParty.post("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0")
     #uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
     say "Küche wird ausgeschaltet"
     request_completed
