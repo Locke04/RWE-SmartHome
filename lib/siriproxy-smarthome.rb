@@ -50,7 +50,7 @@ listen_for /Regal an/i do
     request_completed
 end
 
-listen_for /Kugel an/i do
+listen_for /Kugellampe an/i do
     say "Kugellampe wird eingeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1"
     view = OpenLink.new(uri.gsub("//",""))
@@ -104,10 +104,10 @@ end
 
 #Deaktivieren
 listen_for /Küche aus/i do
-    say "Küche wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
     send_object view
+    say "Küche wird ausgeschaltet"
     request_completed
 end
 
@@ -119,7 +119,7 @@ listen_for /Regal aus/i do
     request_completed
 end
 
-listen_for /Kugel aus/i do
+listen_for /Kugellampe aus/i do
     say "Kugellampe wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0"
     view = OpenLink.new(uri.gsub("//",""))
