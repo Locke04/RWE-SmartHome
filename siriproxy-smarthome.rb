@@ -14,7 +14,7 @@ require 'open-uri'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
-    end
+end
     
 class OpenLink < SiriObject
 def initialize(ref="")
