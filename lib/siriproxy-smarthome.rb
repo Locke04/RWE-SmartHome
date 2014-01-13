@@ -168,7 +168,7 @@ end
 #   system"sleep 3"
 #	system"echo hallo"
 
-#end
+end
 
 
 #		uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=#{type}&Value=#{value}"
