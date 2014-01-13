@@ -86,6 +86,7 @@ end
 listen_for /Küche aus/i do
     say "Küche wird ausgeschaltet"
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
+    view = OpenLink.new(uri.gsub("//",""))
     send_object view
     request_completed
 end
