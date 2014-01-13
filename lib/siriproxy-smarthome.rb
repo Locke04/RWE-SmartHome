@@ -85,8 +85,8 @@ end
 #Deaktivieren
 listen_for /Küche aus/i do
     say "Küche wird ausgeschaltet"
-    @response = Net::HTTP.get(URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"))
-    #url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
+    uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
+    send_object view
     request_completed
 end
 
