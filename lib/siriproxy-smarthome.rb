@@ -84,43 +84,43 @@ end
 
 #Deaktivieren
 listen_for /Küche aus/i do
-    say "Küche wird eingeschaltet"
+    say "Küche wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
     request_completed
 end
 
 listen_for /Regal aus/i do
-    say "Regal Licht wird eingeschaltet"
+    say "Regal Licht wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0"
     request_completed
 end
 
 listen_for /Kugel aus/i do
-    say "Kugellampe wird eingeschaltet"
+    say "Kugellampe wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0"
     request_completed
 end
 
 listen_for /Fernseher aus/i do
-    say "Medientechnik wird eingeschaltet"
+    say "Medientechnik wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0"
     request_completed
 end
 
 listen_for /Schlafzimmer aus/i do
-    say "Schlafzimmer wird eingeschaltet"
+    say "Schlafzimmer wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0"
     request_completed
 end
 
 listen_for /Arbeitszimmer aus/i do
-    say "Arbeitszimmer wird eingeschaltet"
+    say "Arbeitszimmer wird ausgeschaltet"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0"
     request_completed
 end
 
 listen_for /Alles abschalten/i do
-    say "Willkommen zu Hause, Meister"
+    say "Bye, bye oder Gute Nacht!!"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0"
     system"sleep 3"
     url = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0"
