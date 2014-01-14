@@ -112,8 +112,8 @@ listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten
     request_completed
 end
 
-listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück)/i do
-    say "Willkommen zu Hause. Ich hoffe ihr hattet einen schönen Tag!!"
+listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück|Wir sind zu Hause|Wir sind zurück)/i do
+    say "Willkommen zu Hause. Ich hoffe es war ein schöner Tag!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
@@ -129,7 +129,7 @@ listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
-    system"sleep10"
+    system"sleep20"
     system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
@@ -214,7 +214,7 @@ listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalte
     request_completed
 end
 
-listen_for /(Alles ausschalten|Alles aus|System Runterfahren)/i do
+listen_for /(Alles ausschalten|Alles aus|System Runterfahren|Arbeiten|)/i do
     say "Alle Aktoren werden deaktiviert!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
@@ -234,14 +234,14 @@ listen_for /(Alles ausschalten|Alles aus|System Runterfahren)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
-    system"sleep10"
+    system"sleep20"
     system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /(Gute Nacht Speedy|Wir gehen schlafen|Ich gehe schlafen)/i do
+listen_for /(Gute Nacht Speedy|Wir gehen schlafen|Ich gehe schlafen|Schlafen)/i do
     say "Gute Nacht, angenehme Träume!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
@@ -261,7 +261,7 @@ listen_for /(Gute Nacht Speedy|Wir gehen schlafen|Ich gehe schlafen)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
-    system"sleep10"
+    system"sleep20"
     system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
