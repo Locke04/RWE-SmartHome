@@ -171,6 +171,7 @@ listen_for /(Kugellampe ausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     say "Kugellampe wird ausgeschaltet"
     system"sleep 180"
     system"killall Safari"
+    system"sleep 180"
     #system"osascript -e 'tell application 'Safari' to quit'"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
