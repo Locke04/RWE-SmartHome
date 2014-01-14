@@ -169,11 +169,8 @@ listen_for /(Kugellampe ausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     #send_object view
     #system"sleep 3"
     say "Kugellampe wird ausgeschaltet"
-    system"sleep10"
-    puts `osascript -e 'tell application "System Events" to keystroke "w" using {command down, option down}'`
-    #system"osascript -e 'tell application 'Safari' to quit'"
-    system"sleep1"
-    system"open -a Safari https://mobile.rwe-smarthome.de"
+    system"osascript -e 'tell application 'Safari' to quit'"
+    #system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
@@ -215,7 +212,7 @@ listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalte
     request_completed
 end
 
-listen_for /(Alles ausschalten|Alles aus|System Runterfahren|Arbeiten|)/i do
+listen_for /(System Runterfahren|Arbeiten|)/i do
     say "Alle Aktoren werden deaktiviert!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
