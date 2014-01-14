@@ -65,14 +65,14 @@ listen_for /(Kugellampe einschalten|Kugellampe an|Kugellampe anschalten)/i do
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    system"sleep 180"
+    system"sleep 3"
     system"killall Safari"
-    system"sleep 180"
-    say "Kugellampe wird eingeschaltet"
+    system"sleep 2"
     #system"sleep10"
     #system"osascript -e 'tell application 'Safari' to quit'"
     #system"sleep1"
-    #system"open -a Safari https://mobile.rwe-smarthome.de"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
+    say "Kugellampe wird eingeschaltet"
     request_completed
 end
 
@@ -170,12 +170,11 @@ listen_for /(Kugellampe ausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
-    #system"sleep 3"
-    system"sleep 180"
+    system"sleep 3"
     system"killall Safari"
-    system"sleep 180"
+    system"sleep 2"
     #system"osascript -e 'tell application 'Safari' to quit'"
-    #system"open -a Safari https://mobile.rwe-smarthome.de"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     say "Kugellampe wird ausgeschaltet"
     request_completed
 end
