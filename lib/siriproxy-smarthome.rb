@@ -34,62 +34,86 @@ end
 add_property_to_class(OpenLink, :ref)
 
 # Aktivieren
-listen_for /Küche einschalten/i do
+listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    say "Küche wird eingeschaltet"
+    say "Küchenlicht wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Regallampe einschalten/i do
+listen_for /(Regallampe einschalten|Regallampe an|Regallampe anschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    say "Regal Licht wird eingeschaltet"
+    say "Regallampe wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Kugellampe einschalten/i do
+listen_for /(Kugellampe einschalten|Kugellampe an|Kugellampe anschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Kugellampe wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Fernseher einschalten/i do
+listen_for /(Fernseher einschalten|Fernseher an|Fernseher anschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Medientechnik wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Schlafzimmer einschalten/i do
+listen_for /(Schlafzimmer einschalten|Schlafzimmer an|Schlafzimmer anschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Schlafzimmer wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Arbeitszimmer einschalten/i do
+listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Arbeitszimmer wird eingeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Ich bin zu Hause/i do
-    say "Willkommen zu Hause, Meister"
+listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück)/i do
+    say "Willkommen zu Hause. Ich hoffe ihr hattet einen schönen Tag!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
@@ -105,65 +129,93 @@ listen_for /Ich bin zu Hause/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
 #Deaktivieren
-listen_for /Küche ausschalten/i do
+listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche aus)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    say "Küche wird ausgeschaltet"
+    say "Küchenlicht wird ausgeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Regallampe ausschalten/i do
+listen_for /(Regallampe ausschalten|Regallampe aus|Regallampe abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    say "Regallampe Licht wird ausgeschaltet"
+    say "Regallampe wird ausgeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Kugellampe ausschalten/i do
+listen_for /(Kugellampe eausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Kugellampe wird ausgeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Fernseher ausschalten/i do
+listen_for /(Fernseher ausschalten|Fernseher aus|Fernseher abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Medientechnik wird ausgeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Schlafzimmer ausschalten/i do
+listen_for /(Schlafzimmer ausschalten|Schlafzimmer aus|Schlafzimmer abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
-    say "Schlafzimmer wird ausgeschaltet"
+    say "Gute Nacht!!!"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Arbeitszimmer ausschalten/i do
+listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     say "Arbeitszimmer wird ausgeschaltet"
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Alles ausschalten/i do
-    say "Habt einen schönen Tag!!"
+listen_for /(Alles ausschalten|Alles aus|System Runterfahren)/i do
+    say "Alle Aktoren werden deaktiviert!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
@@ -182,11 +234,15 @@ listen_for /Alles ausschalten/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
-listen_for /Gute Nacht Siri/i do
-    say "Gute Nacht Meister!!"
+listen_for /(Gute Nacht Speedy|Wir gehen schlafen|Ich gehe schlafen)/i do
+    say "Gute Nacht, angenehme Träume!!"
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
@@ -205,6 +261,10 @@ listen_for /Gute Nacht Siri/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
+    system"sleep10"
+    system"osascript -e 'tell application "Safari" to quit'"
+    system"sleep1"
+    system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
 end
 
