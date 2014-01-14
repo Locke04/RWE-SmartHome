@@ -41,7 +41,7 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     #system"sleep 3"
     say "Küchenlicht wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -54,7 +54,7 @@ listen_for /(Regallampe einschalten|Regallampe an|Regallampe anschalten)/i do
     #system"sleep 3"
     say "Regallampe wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -67,7 +67,7 @@ listen_for /(Kugellampe einschalten|Kugellampe an|Kugellampe anschalten)/i do
     #system"sleep 3"
     say "Kugellampe wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -80,7 +80,7 @@ listen_for /(Fernseher einschalten|Fernseher an|Fernseher anschalten)/i do
     #system"sleep 3"
     say "Medientechnik wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -93,7 +93,7 @@ listen_for /(Schlafzimmer einschalten|Schlafzimmer an|Schlafzimmer anschalten)/i
     #system"sleep 3"
     say "Schlafzimmer wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -106,7 +106,7 @@ listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten
     #system"sleep 3"
     say "Arbeitszimmer wird eingeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -130,7 +130,7 @@ listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück)/i do
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -144,7 +144,7 @@ listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche
     #system"sleep 3"
     say "Küchenlicht wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -157,7 +157,7 @@ listen_for /(Regallampe ausschalten|Regallampe aus|Regallampe abschalten)/i do
     #system"sleep 3"
     say "Regallampe wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -170,7 +170,7 @@ listen_for /(Kugellampe eausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     #system"sleep 3"
     say "Kugellampe wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -183,7 +183,7 @@ listen_for /(Fernseher ausschalten|Fernseher aus|Fernseher abschalten)/i do
     #system"sleep 3"
     say "Medientechnik wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -196,7 +196,7 @@ listen_for /(Schlafzimmer ausschalten|Schlafzimmer aus|Schlafzimmer abschalten)/
     #system"sleep 3"
     say "Gute Nacht!!!"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -208,7 +208,7 @@ listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalte
     #send_object view
     say "Arbeitszimmer wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -235,7 +235,7 @@ listen_for /(Alles ausschalten|Alles aus|System Runterfahren)/i do
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
@@ -262,7 +262,7 @@ listen_for /(Gute Nacht Speedy|Wir gehen schlafen|Ich gehe schlafen)/i do
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
