@@ -50,10 +50,10 @@ end
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
     system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"sleep 3"
-    say "Stehlampe wird ausgeschaltet"
+    say "Stehlampe eingeschaltet"
     system"killall 'Google Chrome'"
-    system"sleep 5"
-    system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de'"
+    system"sleep 20"
+    system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     request_completed
 end
 
@@ -149,9 +149,9 @@ end
 listen_for /(Stehlampe ausschalten|Stehlampe aus|Stehlampe abschalten)/i do
     system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
     system"sleep 3"
-    say "Stehlampe wird ausgeschaltet"
+    say "Stehlampe ausgeschaltet"
     system"killall 'Google Chrome'"
-    system"sleep 5"
+    system"sleep 20"
     system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de'"
     request_completed
 end
