@@ -163,14 +163,14 @@ listen_for /(Regallampe ausschalten|Regallampe aus|Regallampe abschalten)/i do
     request_completed
 end
 
-listen_for /(Kugellampe eausschalten|Kugellampe aus|Kugellampe abschalten)/i do
+listen_for /(Kugellampe ausschalten|Kugellampe aus|Kugellampe abschalten)/i do
     system"open 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     #system"sleep 3"
     say "Kugellampe wird ausgeschaltet"
     system"sleep10"
-    system"osascript -e 'tell application "Safari" to quit'"
+    system"osascript -e 'tell application 'Safari' to quit'"
     system"sleep1"
     system"open -a Safari https://mobile.rwe-smarthome.de"
     request_completed
