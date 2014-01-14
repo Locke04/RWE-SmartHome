@@ -150,16 +150,16 @@ listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche
 end
 
 listen_for /(Regallampe ausschalten|Regallampe aus|Regallampe abschalten)/i do
-    system"/usr/bin/open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
+    system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
     #view = OpenLink.new(uri.gsub("//",""))
     #send_object view
     system"sleep 3"
     say "Regallampe wird ausgeschaltet"
-    system"kill 'Google Chrome'"
+    system"killall 'Google Chrome'"
     system"sleep 1"
     #system"osascript -e 'tell application 'Safari' to quit'"
     #system"sleep1"
-    system"open -a Safari https://mobile.rwe-smarthome.de"
+    system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de'"
     request_completed
 end
 
