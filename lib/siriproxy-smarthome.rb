@@ -39,9 +39,7 @@ add_property_to_class(OpenLink, :ref)
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
     say "Küchenlicht wird eingeschaltet"
-    uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"
-    view = OpenLink(uri.gsub("//",""))
-    send_object view
+    system"open -a '/Applications/Safari.app' https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     #sleep(2)
     request_completed
     #sleep(5)
