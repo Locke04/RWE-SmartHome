@@ -27,13 +27,20 @@ add_property_to_class(OpenLink, :ref)
 # Aktivieren
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
-    say "Küchenlicht wird eingeschaltet"
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
-    request_completed
-    sleep(5)
-    system"killall Safari"
-    system"open '/Applications/Safari.app'"
+say "Küche"
+rwebefehl = Net::HTTP.get(URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"))
+say "Aus"
+request_completed
 end
+
+#listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
+#    say "Küchenlicht wird eingeschaltet"
+#    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
+#    request_completed
+#    sleep(5)
+#    system"killall Safari"
+#    system"open '/Applications/Safari.app'"
+#end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
     say "Stehlampe eingeschaltet"
