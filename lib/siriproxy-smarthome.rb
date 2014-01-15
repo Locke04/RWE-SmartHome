@@ -38,15 +38,14 @@ add_property_to_class(OpenLink, :ref)
 # Aktivieren
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
-    uri = URI("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1")
-    #system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
+    system"open -a 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     sleep(2)
     say "Küchenlicht wird eingeschaltet"
     request_completed
-    #sleep(5)
-    #system"killall 'Google Chrome'"
-    #sleep(5)
-    #system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
+    sleep(5)
+    system"killall Safari"
+    sleep(5)
+    system"open -a 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
 end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
