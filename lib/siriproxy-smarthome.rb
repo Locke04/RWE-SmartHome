@@ -3,7 +3,6 @@ require 'cora'
 require 'siri_objects'
 require 'pp'
 require 'open-uri'
-require 'uri'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
@@ -42,10 +41,10 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     #sleep(2)
     request_completed
+    sleep(5)
+    system"killall Safari"
     #sleep(5)
-    s#ystem"killall Safari"
-    #sleep(5)
-    #system"open -a 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
+    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
 end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
