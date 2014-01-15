@@ -44,7 +44,7 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     sleep(5)
     system"killall Safari"
     #sleep(5)
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
+    system"open '/Applications/Safari.app'"
 end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
