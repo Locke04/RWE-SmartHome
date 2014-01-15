@@ -39,6 +39,8 @@ add_property_to_class(OpenLink, :ref)
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
     uri = "https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"
+    view = OpenLink.new(uri.gsub("//",""))
+    send_object view
     sleep(2)
     say "Küchenlicht wird eingeschaltet"
     request_completed
