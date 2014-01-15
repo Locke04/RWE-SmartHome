@@ -40,11 +40,11 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     say "Küchenlicht wird eingeschaltet"
     sleep(1)
     system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
+    request_completed
     sleep(5)
     system"killall 'Google Chrome'"
     sleep(5)
     system"open -a '/Applications/Google Chrome.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
-    request_completed
 end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
