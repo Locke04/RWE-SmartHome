@@ -2,9 +2,6 @@
 require 'cora'
 require 'siri_objects'
 require 'pp'
-require 'net/https'
-require 'uri'
-require 'open-uri'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
@@ -20,21 +17,16 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 
 # Aktivieren
 
-listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
-say "Küche"
-@data = URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1").read
-say "An"
-request_completed
-end
 
-#listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
-#    say "Küchenlicht wird eingeschaltet"
-#    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
-#    request_completed
-#    sleep(5)
-#    system"killall Safari"
-#    system"open '/Applications/Safari.app'"
-#end
+
+listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
+    say "Küchenlicht wird eingeschaltet"
+    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
+    request_completed
+    sleep(5)
+    system"killall Safari"
+    system"open '/Applications/Safari.app'"
+end
 
 listen_for /(Stehlampe einschalten|Stehlampe an|Stehlampe anschalten)/i do
     say "Stehlampe eingeschaltet"
@@ -155,38 +147,52 @@ end
 listen_for /(System Runterfahren|Arbeiten|)/i do
     say "Alle Aktoren werden deaktiviert!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     request_completed
     sleep(5)
     system"killall Safari"
     system"open '/Applications/Safari.app'"
+    echo"completed"
+    request_completed
 end
 
 listen_for /(Gute Nacht|Wir gehen schlafen|Ich gehe schlafen|Schlafen)/i do
     say "Gute Nacht, angenehme Träume!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1'"
+    request_completed
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     request_completed
     sleep(5)
     system"killall Safari"
     system"open '/Applications/Safari.app'"
+    echo"completed"
+    request_completed
 end
 end
