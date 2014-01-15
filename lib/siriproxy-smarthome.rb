@@ -2,7 +2,6 @@
 require 'cora'
 require 'siri_objects'
 require 'pp'
-require 'open-uri'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
@@ -16,20 +15,12 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 #Schlafzimmer		7622bd1a-e9da-4047-80b4-750376932c95
 #Arbeitszimmer		09c94f50-f75a-457d-a8ad-e1c761df5d04
 
-class OpenLink < SiriObject
-def initialize(ref="")
-super("OpenLink", "com.apple.ace.assistant")
-self.ref = ref
-end
-end
-add_property_to_class(OpenLink, :ref)
-
 # Aktivieren
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
 say "Küche"
-rwebefehl = Net::HTTP.get(URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"))
-say "Aus"
+Net::HTTP.get(URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1"))
+say "An"
 request_completed
 end
 
