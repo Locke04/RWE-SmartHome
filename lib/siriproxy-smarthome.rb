@@ -74,7 +74,7 @@ listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten
 end
 
 listen_for /(Guten Morgen)/i do
-    say "Willkommen zu Hause. Ich hoffe es war ein schöner Tag!!"
+    say "Guten Morgen!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
