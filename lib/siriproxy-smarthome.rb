@@ -2,8 +2,9 @@
 require 'cora'
 require 'siri_objects'
 require 'pp'
-require 'net/http'
+require 'net/https'
 require 'uri'
+require 'open-uri'
 
 class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
     def initialize(config)
@@ -21,7 +22,7 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
 say "Küche"
-uri = URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1")
+@data = URI.parse("https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1").read
 say "An"
 request_completed
 end
