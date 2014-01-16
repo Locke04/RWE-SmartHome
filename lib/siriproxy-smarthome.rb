@@ -29,7 +29,7 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     request_completed
 end
 
-listen_for /(Lampen an|Leuchten an|Lampen einschalten)/i do
+listen_for /(Lampen an|Leuchten an|Lampen einschalten|Licht aus)/i do
     say "Alle Lampen eingeschaltet!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
