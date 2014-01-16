@@ -107,10 +107,11 @@ listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück|Wir sind zu Hause|Wir
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
-    request_completed
-    sleep(10)
+    sleep(5)
     system"killall Safari"
+    sleep(2)
     system"open '/Applications/Safari.app'"
+    request_completed
 end
 
 #Deaktivieren
@@ -118,15 +119,13 @@ end
 listen_for /(Lampen aus)/i do
     say "Alle Lampen werden ausgeschaltet!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
-    sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
-    sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
-    sleep(1)
-    request_completed
-    sleep(10)
+    sleep(5)
     system"killall 'Safari'"
+    sleep(2)
     system"open '/Applications/Safari.app'"
+    request_completed
 end
 
 listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche aus)/i do
