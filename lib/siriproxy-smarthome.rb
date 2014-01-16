@@ -125,7 +125,7 @@ listen_for /(Lampen aus)/i do
     sleep(1)
     request_completed
     sleep(10)
-    system"killall Safari"
+    system"killall 'Safari'"
     system"open '/Applications/Safari.app'"
 end
 
