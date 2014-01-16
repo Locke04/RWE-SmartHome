@@ -93,7 +93,6 @@ listen_for /(Guten Morgen)/i do
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
-    sleep(10)
     system"killall Safari"
     system"open '/Applications/Safari.app'"
     request_completed
@@ -192,10 +191,8 @@ listen_for /(System Runterfahren|Arbeiten|)/i do
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
-    sleep(15)
     system"killall Safari"
     system"open '/Applications/Safari.app'"
-    echo"completed"
     request_completed
 end
 
