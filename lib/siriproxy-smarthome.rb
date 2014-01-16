@@ -20,7 +20,7 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
-    say "Küchenlicht wird eingeschaltet"
+    say "Küchenlicht eingeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     sleep(1)
     system"killall Safari"
@@ -29,8 +29,8 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
     request_completed
 end
 
-listen_for /(Lampen an)/i do
-    say "Alle Lampen werden eingeschaltet!!"
+listen_for /(Lampen an|Leuchten an|Lampen einschalten)/i do
+    say "Alle Lampen eingeschaltet!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
@@ -62,7 +62,7 @@ listen_for /(Kugellampe einschalten|Kugellampe an|Kugellampe anschalten)/i do
 end
 
 listen_for /(Fernseher einschalten|Fernseher an|Fernseher anschalten)/i do
-    say "Medientechnik wird eingeschaltet"
+    say "Medientechnik eingeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
     sleep(1)
     system"killall Safari"
@@ -72,7 +72,7 @@ listen_for /(Fernseher einschalten|Fernseher an|Fernseher anschalten)/i do
 end
 
 listen_for /(Schlafzimmer einschalten|Schlafzimmer an|Schlafzimmer anschalten)/i do
-    say "Schlafzimmer wird eingeschaltet"
+    say "Schlafzimmer eingeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1'"
     sleep(1)
     ssystem"killall Safari"
@@ -82,7 +82,7 @@ listen_for /(Schlafzimmer einschalten|Schlafzimmer an|Schlafzimmer anschalten)/i
 end
 
 listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten)/i do
-    say "Arbeitszimmer wird eingeschaltet"
+    say "Arbeitszimmer eingeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=1'"
     sleep(1)
     system"killall Safari"
@@ -104,8 +104,8 @@ listen_for /(Guten Morgen)/i do
     request_completed
 end
 
-listen_for /(Ich bin zu Hause|Hallo Speedy|Ich bin zurück|Wir sind zu Hause|Wir sind zurück)/i do
-    say "Willkommen zu Hause. Ich hoffe es war ein schöner Tag!!"
+listen_for /(Ich bin zu Hause|Hallo Speedy|Hi Speedy|Ich bin zurück|Wir sind zu Hause|Wir sind zurück)/i do
+    say "Willkommen zu Hause!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
@@ -119,8 +119,8 @@ end
 
 #Deaktivieren
 
-listen_for /(Lampen aus)/i do
-    say "Alle Lampen werden ausgeschaltet!!"
+listen_for /(Lampen aus|Leuchten aus|Lampen ausschalten)/i do
+    say "Alle Lampen ausgeschaltet!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=0'"
@@ -132,7 +132,7 @@ listen_for /(Lampen aus)/i do
 end
 
 listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche aus)/i do
-    say "Küchenlicht wird ausgeschaltet"
+    say "Küchenlicht ausgeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     sleep(1)
     system"killall Safari"
@@ -162,7 +162,7 @@ listen_for /(Kugellampe ausschalten|Kugellampe aus|Kugellampe abschalten)/i do
 end
 
 listen_for /(Fernseher ausschalten|Fernseher aus|Fernseher abschalten)/i do
-    say "Medientechnik wird ausgeschaltet"
+    say "Medientechnik ausgeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=0'"
     sleep(1)
     system"killall Safari"
@@ -172,7 +172,7 @@ listen_for /(Fernseher ausschalten|Fernseher aus|Fernseher abschalten)/i do
 end
 
 listen_for /(Schlafzimmer ausschalten|Schlafzimmer aus|Schlafzimmer abschalten)/i do
-    say "Gute Nacht!!!"
+    say "Schlafzimmer ausgeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=0'"
     sleep(1)
     system"killall Safari"
@@ -182,7 +182,7 @@ listen_for /(Schlafzimmer ausschalten|Schlafzimmer aus|Schlafzimmer abschalten)/
 end
 
 listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalten)/i do
-    say "Arbeitszimmer wird ausgeschaltet"
+    say "Arbeitszimmer ausgeschaltet"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     sleep(1)
     system"killall Safari"
@@ -191,7 +191,7 @@ listen_for /(Arbeitszimmer ausschalten|Arbeitszimmer aus|Arbeitszimmer abschalte
     request_completed
 end
 
-listen_for /(System Runterfahren|Arbeiten|)/i do
+listen_for /(System Runterfahren|Arbeiten)/i do
     say "Alle Aktoren werden deaktiviert!!"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
