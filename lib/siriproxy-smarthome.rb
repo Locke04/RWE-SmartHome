@@ -20,7 +20,9 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 
 
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
+    system"open -a '/Applications/Safari.app' 'mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     say "Küchenlicht eingeschaltet"
+    sleep(2)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     sleep(1)
     system"killall Safari"
@@ -30,7 +32,9 @@ listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalt
 end
 
 listen_for /(Lampen an|Leuchten an|Lampen einschalten|Licht aus)/i do
+    system"open -a '/Applications/Safari.app' 'mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     say "Alle Lampen eingeschaltet!!"
+    sleep(2)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
@@ -91,21 +95,10 @@ listen_for /(Arbeitszimmer einschalten|Arbeitszimmer an|Arbeitszimmer anschalten
     request_completed
 end
 
-listen_for /(Guten Morgen)/i do
-    say "Guten Morgen!!"
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
-    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
-    sleep(3)
-    system"killall Safari"
-    sleep(1)
-    system"open '/Applications/Safari.app'"
-    request_completed
-end
-
-listen_for /(Ich bin zu Hause|Hallo Speedy|Hi Speedy|Ich bin zurück|Wir sind zu Hause|Wir sind zurück)/i do
-    say "Willkommen zu Hause!!"
+listen_for /(Ich bin zu Hause|Hallo Speedy|Hi Speedy|Ich bin zurück|Wir sind zu Hause|Wir sind zurück|Einschalten|Guten Morgen)/i do
+    system"open -a '/Applications/Safari.app' 'mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
+    say "System wird eingeschaltet"
+    sleep(2)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=5786cbbe-0b69-4bf2-b665-7c89b0dda38f&Value=1'"
@@ -207,7 +200,9 @@ listen_for /(System Runterfahren|Arbeiten)/i do
 end
 
 listen_for /(Gute Nacht|Wir gehen schlafen|Ich gehe schlafen|Schlafen)/i do
+    system"open -a '/Applications/Safari.app' 'mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     say "Gute Nacht, angenehme Träume!!"
+    sleep(2)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=a0a69125-00b5-489d-88e7-0ae2cf5acc0b&Value=0'"
