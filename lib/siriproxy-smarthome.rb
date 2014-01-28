@@ -105,8 +105,6 @@ listen_for /(Ich bin zu Hause|Hallo Speedy|Hi Speedy|Ich bin zurück|Wir sind zu
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=80dc02a2-bcc7-460f-bace-ea0d97ea9ba6&Value=1'"
     sleep(3)
     system"killall Safari"
-    sleep(2)
-    system"open '/Applications/Safari.app'"
     request_completed
 end
 
@@ -211,8 +209,6 @@ listen_for /(Gute Nacht|Wir gehen schlafen|Ich gehe schlafen|Schlafen)/i do
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=09c94f50-f75a-457d-a8ad-e1c761df5d04&Value=0'"
     sleep(3)
     system"killall Safari"
-    sleep(1)
-    system"open '/Applications/Safari.app'"
     request_completed
 end
 
