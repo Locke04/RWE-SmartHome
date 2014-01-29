@@ -22,12 +22,12 @@ class SiriProxy::Plugin::SmartHome < SiriProxy::Plugin
 listen_for /(Küche einschalten|Küche an|Küchenlicht an|Küchenlicht einschalten)/i do
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     say "Küchenlicht eingeschaltet"
-    sleep(1)
+    sleep(3)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=1'"
     sleep(1)
     system"killall Safari"
     sleep(1)
-    system"open '/Applications/Safari.app'"
+    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     request_completed
 end
 
@@ -139,12 +139,12 @@ end
 listen_for /(Küchenlicht ausschalten|Küchenlicht aus|Küche ausschalten|Küche aus)/i do
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     say "Küchenlicht ausgeschaltet"
-    sleep(1)
+    sleep(3)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=9fc52200-1747-408a-a82f-8ee294511b70&Value=0'"
     sleep(1)
     system"killall Safari"
     sleep(1)
-    system"open '/Applications/Safari.app'"
+    system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     request_completed
 end
 
