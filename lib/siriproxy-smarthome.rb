@@ -87,7 +87,7 @@ listen_for /(Schlafzimmer einschalten|Schlafzimmer an|Schlafzimmer anschalten)/i
     sleep(3)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/JsonApi/SetActuatorValue/?Id=7622bd1a-e9da-4047-80b4-750376932c95&Value=1'"
     sleep(1)
-    ssystem"killall Safari"
+    system"killall Safari"
     sleep(1)
     system"open -a '/Applications/Safari.app' 'https://mobile.rwe-smarthome.de/MobileWeb/OverviewAndControl'"
     request_completed
